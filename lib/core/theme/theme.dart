@@ -5,18 +5,21 @@ class Themes {
   static final darkTheme = ThemeData(
     textTheme: GoogleFonts.vazirmatnTextTheme().apply(bodyColor: Colors.white),
     colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: Colors.amber,
+      primarySwatch: Colors.yellow,
       brightness: Brightness.dark,
       cardColor: Colors.black54,
     ),
+    dividerColor: Colors.grey,
     bottomAppBarTheme: const BottomAppBarTheme(
       color: Colors.black45,
     ),
-    iconTheme: const IconThemeData(color: Colors.purple),
+    iconTheme: IconThemeData(color: Colors.yellow[800]),
     cardColor: Colors.black54,
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(Colors.red[800]))),
+            foregroundColor: MaterialStateProperty.all(Colors.black87))),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        elevation: 10, backgroundColor: Colors.yellow[800]),
     useMaterial3: true,
   );
   static final lightTheme = ThemeData(
@@ -29,8 +32,9 @@ class Themes {
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.amber,
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 25)),
-    floatingActionButtonTheme:
-        const FloatingActionButtonThemeData(elevation: 10),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        elevation: 10, backgroundColor: Colors.orange),
+    dividerColor: Colors.white,
     useMaterial3: true,
   );
 }

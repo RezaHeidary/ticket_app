@@ -10,4 +10,11 @@ class MyString {
   static String appBarListResult = "ازمون های انجام شده";
   static String headerBar = "سربرگ";
   static String btnAdd = "افزودن";
+  static String btnAddTitle = "موضوع";
+  static String btnAddBody = "توضیحات";
+  static String btnAddFile = "افزودن فایل";
+  static String btnAddModal = "افزودن";
+  static String supAppBar = "پشتیبانی";
+  static String inputText = "اینجا بنویس";
+  static String empty = "خالی";
 }

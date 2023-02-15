@@ -4,6 +4,11 @@ import 'package:ticket_app/core/theme/theme.dart';
 
 class MatrialAppService extends GetxService {
   GetStorage getStorage = GetStorage();
+
+  getInit() async {
+    await GetStorage.init();
+  }
+
   getTheme() {
     return getStorage.read("theme") == "dark"
         ? Themes.darkTheme

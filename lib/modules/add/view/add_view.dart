@@ -3,15 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticket_app/core/theme/style.dart';
 import 'package:ticket_app/core/value/str_val.dart';
-import 'package:ticket_app/modules/add/widget/add_widget.dart';
+import 'package:ticket_app/data/serveis/file_serveis.dart';
+import 'package:ticket_app/modules/add/widget/text_filed_widget.dart';
 
 class AddView extends StatelessWidget {
   const AddView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PicFileController());
     var theme = Theme.of(context);
+    PicFileController picFileController = Get.put(PicFileController());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: MyStyle.widgetStyle(MyString.btnAddTxt),
       body: Stack(children: [
         Column(
@@ -45,9 +49,44 @@ class AddView extends StatelessWidget {
                 ),
               ),
             ),
-            const AddWidget(),
-            const AddWidget(),
-            const AddWidget(),
+            AddTextWidget(
+              title: MyString.btnAddTitle,
+            ),
+            AddTextWidget(
+              title: MyString.btnAddBody,
+              maxLine: 4,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: GestureDetector(
+                onTap: () {
+                  picFileController.getFile();
+                },
+                child: Container(
+                  width: Get.width,
+                  height: Get.height / 12,
+                  decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          spreadRadius: .5,
+                          blurRadius: .5,
+                          offset: Offset(0, 0), // changes position of shadow
+                        ),
+                      ],
+                      color: theme.cardColor,
+                      borderRadius: BorderRadius.circular(4)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Obx(() => Text(picFileController.fileName.value)),
+                          const Icon(Icons.add_link_sharp)
+                        ]),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
         Positioned(
